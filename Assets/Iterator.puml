@@ -1,0 +1,19 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+class ListWithSwapping<T>{
+...
++getIterator()
+}
+
+class QueueIterator<T>{
+-ListWithSwapping
++QueueIterator(ListWithSwapping<T>)
++getNext()
++hasMore()
+}
+
+ListWithSwapping <-- QueueIterator
+QueueIterator <-- ListWithSwapping
+
+@enduml

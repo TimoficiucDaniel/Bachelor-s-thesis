@@ -1,0 +1,99 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+class PlateUtils
+
+class PlateSimulator
+
+class MapDisplay
+
+PlateUtils o-- Voronoi
+PlateSimulator o-- Voronoi
+MapDisplay o-- Voronoi
+
+class Voronoi{
+-SiteList sites
+-List<Triangle> triangles
++List<Edge> edges
++Rectf plotBounds
++Dicitonary<Vector2,Site> sitesIndexedByLocation
+-Random weightDistributor
++Dispose()
++Voronoi(List<Vector2>, Rectf)
++Voronoi(List<Vector2>, Rectf, int, int)
+-init(List<Vector2>, Rectf)
+-AddSites(List<Vector2>)
+-AddSite(Vector2, int)
++Region(Vector2)
++NeighborSitesForSite(Vector2)
++Circles()
++VoronoiBoundaryForSite(Vector2)
++VoronoiDiagram()
++HullEdges()
++HullPointsInOrder()
++Regions()
++SiteCoords()
+}
+
+class SiteList
+
+class Site
+
+class Triangle
+
+class Edge
+
+class EdgeReorderer
+
+class HalfEdgePriorityQueue
+
+class LineSegment
+
+class HalfEdge
+
+class LR
+
+class LRCollection
+
+class Vertex
+
+class Circles
+
+class Polygon
+
+interface ICoord
+
+class EdgeList
+
+Voronoi o-- Site
+Voronoi o-- SiteList
+Voronoi o-- Triangle
+Voronoi o-- Edge
+Voronoi o-- EdgeReorderer
+Voronoi o-- HalfEdgePriorityQueue
+Voronoi o-- LineSegment
+Voronoi o-- EdgeList
+Vertex o-- Edge
+SiteList o-- Edge
+LineSegment o-- Edge
+EdgeList o-- Edge
+HalfEdge o-- Edge
+Site o-- EdgeReorderer
+Vertex o-- HalfEdge
+HalfEdgePriorityQueue o-- HalfEdge
+Vertex <|-- ICoord
+Site <|-- ICoord
+LineSegment o-- LR
+LRCollection o-- LR
+Vertex o-- LR
+EdgeReorderer o-- LR
+Edge o-- LRCollection
+HalfEdge o-- Site
+Triangle o-- Site
+Edge o-- Site
+HalfEdge o-- Vertex
+EdgeReorderer o-- Vertex
+SiteList o-- Circles
+Site o-- Polygon
+
+@enduml

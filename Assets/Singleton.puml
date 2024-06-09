@@ -1,0 +1,21 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+class PlateSimulator
+
+class MapGenerator
+
+class MapDisplay
+
+class PlateUtils{
+instance: PlateUtils
+-PlateUtils()
++getPlateUtils()
+}
+
+PlateUtils --> PlateUtils
+MapDisplay o-- PlateUtils
+MapGenerator o-- PlateUtils
+PlateSimulator o-- PlateUtils
+
+@enduml
